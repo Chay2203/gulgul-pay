@@ -8,6 +8,19 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Gulgul Pay</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audioButton = document.getElementById('audioButton');
+            var audio = document.getElementById('audio');
+        
+            audioButton.addEventListener('click', function() {
+                audio.play();
+                if (window.navigator.vibrate) {
+                    window.navigator.vibrate(200);
+                }
+            });
+        });
+        </script>
 </head>
 <body>
     <header class="header pd">
@@ -29,22 +42,7 @@
             <div class="tez__circle" id="audioButton">
                 <ion-icon class="tez-icon" name="filter"></ion-icon>
             </div>
-            
             <audio id="audio" src="gulgul.mp3" preload="auto"></audio>
-            
-            <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var audioButton = document.getElementById('audioButton');
-                var audio = document.getElementById('audio');
-            
-                audioButton.addEventListener('click', function() {
-                    audio.play();
-                    if (window.navigator.vibrate) {
-                        window.navigator.vibrate(200);
-                    }
-                });
-            });
-            </script>
             <p class="tez__text">Tap for GulGul Mode</p>
         </div>
 
