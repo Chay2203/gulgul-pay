@@ -10,13 +10,18 @@
     <title>Gulgul Pay</title>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var audioButton = document.getElementById('audioButton');
-            var audio = document.getElementById('audio');
-        
-            audioButton.addEventListener('click', function() {
-                audio.play();
-            });
-        });
+    var tezCircle = document.querySelector('.tez__circle');
+
+    tezCircle.addEventListener('click', function() {
+        window.navigator.vibrate(200);
+        playAudio();
+    });
+    function playAudio() {
+        var audio = new Audio('./images/gulgul.mp3');
+        audio.play();
+    }
+});
+
         </script>
 </head>
 <body>
@@ -36,7 +41,7 @@
     <main class="main">
 
         <div class="tez">
-            <div class="tez__circle" id="audioButton">
+            <div class="tez__circle" id="audioButton" >
                 <ion-icon class="tez-icon" name="filter"></ion-icon>
             </div>
             <audio id="audio" src="gulgul.mp3" preload="auto"></audio>
