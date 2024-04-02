@@ -27,7 +27,7 @@ body {
 /*HEADER*/
 
 .header {
-  position: fixed;
+  position: sticky;
   z-index: 50;
   width: 100%;
   color: #fff;
@@ -215,6 +215,14 @@ body {
   border-radius: 50%;
   margin-bottom: .5rem;
 }
+.slider__promo .promo-list .promo-item__photo_chittor {
+  width: 25.3rem;
+  height: 25.3rem;
+  border-radius: 5%;
+  margin-bottom: .5rem;
+  margin-left: 3rem;
+  margin-top: 2rem;
+}
 .slider__promo .promo-list .promo-item__name {
   font-size: 1.4rem;
   text-align: center;
@@ -241,4 +249,22 @@ body {
 .slider__options .option__subtext {
   color: #667e8d;
   margin-top: .5rem;
+}
+.promo-item__photo_chittor {
+  transition: transform 0.3s ease;
+}
+
+.promo-item__photo_chittor:hover {
+  transform: rotate(-2deg);
+}
+#promo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+}
+
+#promo.clicked {
+  transform: scale(1.5) translate(-50%, -50%);
 }
