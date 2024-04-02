@@ -20,9 +20,11 @@
         var audio = new Audio('./images/gulgul.mp3');
         audio.play();
     }
-});
-
-        </script>
+    });
+    document.getElementById('promo').addEventListener('click', function() {
+    this.classList.toggle('clicked');
+    });
+    </script>
 </head>
 <body>
     <header class="header pd">
@@ -90,7 +92,7 @@
 
             <div class="contact-item">
                 <div class="contact-item__photo" style="background-color: purple">P</div>
-                <p class="contact-item__name">Paka</p>
+                <p class="contact-item__name" onclick="">Paka</p>
             </div>
 
             <div class="contact-item">
@@ -130,6 +132,16 @@
                     <p class="promo-item__name">OYO</p>
                 </div>
             </div>
+        </div>
+        <div class="slider__promo">
+            <p class="promo-head">Your Coupons</p>
+            <div class="promo-list">
+                <div class="promo-item">
+                    <img class="promo-item__photo_chittor" src="./images/oyo.png" alt="oyo rewards">
+                    <img class="promo-item__photo_chittor" src="./images/oyo.png" alt="oyo rewards">
+                </div>
+            </div>
+            
         </div>
 
         <div class="slider__options">
