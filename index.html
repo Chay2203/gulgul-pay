@@ -21,9 +21,51 @@
         audio.play();
     }
     });
-    document.getElementById('promo').addEventListener('click', function() {
-    this.classList.toggle('clicked');
+    function animateImage(image) {
+        image.classList.add('clicked');
+        document.querySelector('.overlay').style.display = 'block';
+    }
+    function handleOverlayClick(event) {
+        const clickedImages = document.querySelectorAll('.promo-item__photo_chittor.clicked');
+        if (clickedImages.length > 0 && event.target === this) {
+            clickedImages.forEach(img => img.classList.remove('clicked'));
+            this.style.display = 'none';
+        }
+    }
+    function animateImage(image) {
+    const isExpanded = image.classList.contains('clicked');
+
+    if (isExpanded) {
+        return;
+    } else {
+        image.classList.add('clicked');
+        document.querySelector('.overlay').style.display = 'block';
+    }
+    }
+
+    document.addEventListener('click', function(event) {
+        if (!event.target.classList.contains('promo-item__photo_chittor')) {
+            const clickedImages = document.querySelectorAll('.promo-item__photo_chittor.clicked');
+            
+            clickedImages.forEach(img => img.classList.remove('clicked'));
+            
+            document.querySelector('.overlay').style.display = 'none';
+        }
     });
+    function playVideo() {
+        var modal = document.getElementById("videoModal");
+        var video = document.getElementById("modalVideo");
+        modal.style.display = "block";
+        video.play();
+    }
+
+    function closeModal() {
+        var modal = document.getElementById("videoModal");
+        var video = document.getElementById("modalVideo");
+        modal.style.display = "none";
+        video.pause();
+    }
+
     </script>
 </head>
 <body>
@@ -107,10 +149,21 @@
 
             <div class="business-list">
 
-                <div class="business-item">
+                <div class="business-item" onclick="playVideo()">
                     <div class="business-item__photo" style="background-color: orangered;">D</div>
                     <p class="business-item__name">Danny</p>
                 </div>
+                
+                <div id="videoModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal()">&times;</span>
+                        <video id="modalVideo" controls>
+                            <source src="images/gulgulvideo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                
 
                 <div class="business-item">
                     <div class="business-item__photo" style="background-color: rgb(231, 231, 231)"></div>
@@ -137,12 +190,14 @@
             <p class="promo-head">Your Coupons</p>
             <div class="promo-list">
                 <div class="promo-item">
-                    <img class="promo-item__photo_chittor" src="./images/oyo.png" alt="oyo rewards">
-                    <img class="promo-item__photo_chittor" src="./images/oyo.png" alt="oyo rewards">
+                    <img class="promo-item__photo_chittor" src="./images/gulgul_first.png" alt="oyo rewards" onclick="animateImage(this)">
+                    <img class="promo-item__photo_chittor" src="./images/gulgul_second.png" alt="oyo rewards" onclick="animateImage(this)">
+                    <img class="promo-item__photo_chittor" src="./images/gulgul_third.png" alt="oyo rewards" onclick="animateImage(this)">
                 </div>
             </div>
-            
         </div>
+    
+        <div class="overlay"></div>
 
         <div class="slider__options">
 
